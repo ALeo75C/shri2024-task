@@ -6,9 +6,9 @@
           content="width=device-width, initial-scale=1.0">
     <title>Яндекс.Дом</title>
     <link rel="preload" as="font" href="assets/lato.woff2" type="font/woff2" crossorigin="anonymous">
-    <script src="vendors/react-with-dom.js"></script>
+    <script defer src="vendors/react-with-dom.js"></script>
     <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="CriticalStyles.css">
 </head>
 <body>
 
@@ -402,6 +402,19 @@
             </>
         );
     }, 100);
+</script>
+<script>
+    function stylesLoader() {
+        let link = document.createElement('link')
+        link.href = "styles.css"
+        link.rel = "stylesheet"
+        link.type = "text/css"
+        link.media = "print"
+        link.onload = link.media = 'all'
+        document.getElementsByTagName("head")[0].appendChild(link)
+    }
+
+  document.addEventListener("DOMContentLoaded", stylesLoader)
 </script>
 
 </body>
