@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>Яндекс.Дом</title>
-    <link rel="preload" as="font" href="assets/lato.woff2" type="font/woff2" crossorigin="anonymous">
+    <!-- <link rel="preload" as="font" href="assets/lato.woff2" type="font/woff2" crossorigin="anonymous"> -->
     <script defer src="vendors/react-with-dom.js"></script>
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="CriticalStyles.css">
@@ -35,8 +35,8 @@
     </div>
 </footer>
 
-<script src="vendors/babel.min.js"></script>
-<script type="text/babel">
+<script defer src="vendors/babel.min.js"></script>
+<script defer type="text/babel" data-presets="react">
     function Header() {
         let [expanded, setExpanded] = React.useState(false);
         let [toggled, setToggled] = React.useState(false);
@@ -201,9 +201,11 @@
             }]
         }
     };
+
     for (let i = 0; i < 6; ++i) {
-        TABS.all.items = [...TABS.all.items, ...TABS.all.items];
+        TABS.all.items = [].concat(TABS.all.items, TABS.all.items);
     }
+
     const TABS_KEYS = Object.keys(TABS);
 
     function Main() {
@@ -345,13 +347,13 @@
                         Избранные устройства
                     </h2>
 
-                    <select className="section__select" defaultValue="all" onInput={onSelectInput}>
+                    {/*<select className="section__select" defaultValue="all" onInput={onSelectInput}>
                         {TABS_KEYS.map(key =>
                             <option key={key} value={key}>
                                 {TABS[key].title}
                             </option>
                         )}
-                    </select>
+                    </select>*/}
 
                     <ul role="tablist" className="section__tabs">
                         {TABS_KEYS.map(key =>

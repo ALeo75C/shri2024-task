@@ -306,28 +306,24 @@ html, body {
     width: 1.5rem;
     height: 1.5rem;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
+    background-size: auto;
+    background-image: url(assets/icons.svg);
 }
 
 .event__icon_temp {
-    background-image: url(assets/icon_temperature.svg);
+    background-position-y: -129px;
 }
 
 .event__icon_temp2 {
-    background-image: url(assets/icon_temperature_2.svg);
+    background-position-y: -97px;
 }
 
 .event__icon_light {
-    background-image: url(assets/icon_sun.svg);
+    background-position-y: -64px;
 }
 
 .event__icon_light2 {
-    background-image: url(assets/icon_sun_2.svg);
-}
-
-.event__icon_schedule {
-    background-image: url(assets/icon_scheduled.svg);
+    background-position-y: -32px;
 }
 
 .event__title {
